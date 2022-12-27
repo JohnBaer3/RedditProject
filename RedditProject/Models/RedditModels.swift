@@ -1,42 +1,11 @@
 //
-//  RedditVC.swift
+//  RedditModels.swift
 //  RedditProject
 //
-//  Created by John Baer on 12/24/22.
+//  Created by John Baer on 12/26/22.
 //
 
-import UIKit
-
-class RedditVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        fetchData()
-        
-    }
-
-
-    func fetchData() {
-        guard let url = URL(string: "https://www.reddit.com/r/popular/.json") else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-        guard let data = data else { return }
-            do {
-                let model = try JSONDecoder().decode(RedditResponse.self, from: data)
-//                for child in model.data.children {
-//                    print(child.data.media?.redditVideo.url)
-//                }
-            }
-            catch {
-            }
-        }
-        task.resume()
-    }
-    
-}
-
-
+import Foundation
 
 struct RedditResponse : Decodable {
     let data: ListData
@@ -57,9 +26,9 @@ struct PostData : Decodable {
     let subredditName: String
     let authorFullName: String
     let selftext: String
-    let thumbnail: String?
-    let ups: Int
-    let downs: Int
+    let thumbnail: String
+    let score: Int
+    let commentCount: Int?
     let mediaType: String?   // hosted:video     image   link   nil if a text post (like an Askreddit thread)
 //    let created: Int  // this should be converted to Date right in the Decodable
     
@@ -68,7 +37,8 @@ struct PostData : Decodable {
         case authorFullName = "author_fullname"
         case media = "secure_media"
         case mediaType = "post_hint"
-        case preview, title, selftext, thumbnail, ups, downs
+        case commentCount = "num_comments"
+        case preview, title, selftext, thumbnail, score
     }
 }
 

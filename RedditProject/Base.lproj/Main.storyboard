@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wLM-ps-ixL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,23 +8,104 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--RedditVC-->
+        <!--Main Page-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RedditVC" customModule="RedditProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainPage" customModule="RedditProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mt3-Wx-zbi">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fbN-8s-SmL"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OPx-F8-JzG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mt3-Wx-zbi" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="79O-Yf-yxK"/>
+                            <constraint firstItem="mt3-Wx-zbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7nH-iR-ieg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mt3-Wx-zbi" secondAttribute="trailing" id="CVZ-NR-1iT"/>
+                            <constraint firstItem="mt3-Wx-zbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kfg-rk-ntK"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="iV0-YZ-6VM">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="list.bullet" catalog="system" id="dLr-DA-6tc"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="person.crop.circle" catalog="system" id="6fE-9n-tHN"/>
+                            <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="2yo-qn-YAn"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="mt3-Wx-zbi" id="tBP-Cu-nG2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="102"/>
+            <point key="canvasLocation" x="979.71014492753636" y="101.78571428571428"/>
+        </scene>
+        <!--Post PageVC-->
+        <scene sceneID="tQo-4t-i07">
+            <objects>
+                <viewController storyboardIdentifier="PostPageVC" id="J0n-As-yWZ" customClass="PostPageVC" customModule="RedditProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Oh-0E-Jwa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ril-8B-bqH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="J0n-As-yWZ" id="NkQ-4b-mVc"/>
+                                    <outlet property="delegate" destination="J0n-As-yWZ" id="kqA-ue-UTU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fqS-iT-wdG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ril-8B-bqH" firstAttribute="bottom" secondItem="fqS-iT-wdG" secondAttribute="bottom" constant="34" id="HVT-0t-AuE"/>
+                            <constraint firstItem="fqS-iT-wdG" firstAttribute="trailing" secondItem="Ril-8B-bqH" secondAttribute="trailing" id="RTJ-Sh-ADA"/>
+                            <constraint firstItem="Ril-8B-bqH" firstAttribute="leading" secondItem="fqS-iT-wdG" secondAttribute="leading" id="TGM-0C-8nM"/>
+                            <constraint firstItem="fqS-iT-wdG" firstAttribute="top" secondItem="Ril-8B-bqH" secondAttribute="top" constant="44" id="xVn-V4-0xc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ril-8B-bqH" id="whp-CS-YjX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z7h-za-Zrs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1775.3623188405797" y="101.78571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qn2-W8-FYl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wLM-ps-ixL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="seK-wJ-zmN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WBu-Cl-EwU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f0S-ez-Xy1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.565217391304358" y="101.78571428571428"/>
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
