@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB9A73D02956E970009DEA39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A73CF2956E970009DEA39 /* AppDelegate.swift */; };
 		CB9A73D22956E970009DEA39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A73D12956E970009DEA39 /* SceneDelegate.swift */; };
-		CB9A73D42956E970009DEA39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A73D32956E970009DEA39 /* ViewController.swift */; };
+		CB9A73D42956E970009DEA39 /* RedditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A73D32956E970009DEA39 /* RedditVC.swift */; };
 		CB9A73D72956E970009DEA39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9A73D52956E970009DEA39 /* Main.storyboard */; };
 		CB9A73DA2956E970009DEA39 /* RedditProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB9A73D82956E970009DEA39 /* RedditProject.xcdatamodeld */; };
 		CB9A73DC2956E977009DEA39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A73DB2956E977009DEA39 /* Assets.xcassets */; };
@@ -40,7 +40,7 @@
 		CB9A73CC2956E970009DEA39 /* RedditProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A73CF2956E970009DEA39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB9A73D12956E970009DEA39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB9A73D32956E970009DEA39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB9A73D32956E970009DEA39 /* RedditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditVC.swift; sourceTree = "<group>"; };
 		CB9A73D62956E970009DEA39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB9A73D92956E970009DEA39 /* RedditProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RedditProject.xcdatamodel; sourceTree = "<group>"; };
 		CB9A73DB2956E977009DEA39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,9 +101,9 @@
 		CB9A73CE2956E970009DEA39 /* RedditProject */ = {
 			isa = PBXGroup;
 			children = (
+				CB9A73D32956E970009DEA39 /* RedditVC.swift */,
 				CB9A73CF2956E970009DEA39 /* AppDelegate.swift */,
 				CB9A73D12956E970009DEA39 /* SceneDelegate.swift */,
-				CB9A73D32956E970009DEA39 /* ViewController.swift */,
 				CB9A73D52956E970009DEA39 /* Main.storyboard */,
 				CB9A73DB2956E977009DEA39 /* Assets.xcassets */,
 				CB9A73DD2956E977009DEA39 /* LaunchScreen.storyboard */,
@@ -261,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB9A73D42956E970009DEA39 /* ViewController.swift in Sources */,
+				CB9A73D42956E970009DEA39 /* RedditVC.swift in Sources */,
 				CB9A73DA2956E970009DEA39 /* RedditProject.xcdatamodeld in Sources */,
 				CB9A73D02956E970009DEA39 /* AppDelegate.swift in Sources */,
 				CB9A73D22956E970009DEA39 /* SceneDelegate.swift in Sources */,
