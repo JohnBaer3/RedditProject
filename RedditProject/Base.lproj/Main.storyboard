@@ -35,7 +35,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iV0-YZ-6VM">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="list.bullet" catalog="system" id="dLr-DA-6tc"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="list.bullet" catalog="system" id="dLr-DA-6tc">
+                            <connections>
+                                <action selector="optionButtonClicked:" destination="BYZ-38-t0r" id="Xhm-Jc-CLQ"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="person.crop.circle" catalog="system" id="6fE-9n-tHN"/>
                             <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="2yo-qn-YAn"/>
@@ -48,6 +52,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979.71014492753636" y="101.78571428571428"/>
+        </scene>
+        <!--Subreddit OptionVC-->
+        <scene sceneID="oT1-Ld-5qT">
+            <objects>
+                <viewController storyboardIdentifier="SubredditOptionVC" id="auQ-kj-xRz" customClass="SubredditOptionVC" customModule="RedditProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iuC-Z6-fNh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mri-mZ-kN7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="auQ-kj-xRz" id="Dyy-iR-82Y"/>
+                                    <outlet property="delegate" destination="auQ-kj-xRz" id="TWb-U5-0Cr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aSq-O8-Dkt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aSq-O8-Dkt" firstAttribute="trailing" secondItem="mri-mZ-kN7" secondAttribute="trailing" id="FMF-iN-2zf"/>
+                            <constraint firstAttribute="bottom" secondItem="mri-mZ-kN7" secondAttribute="bottom" id="Szm-62-NOO"/>
+                            <constraint firstItem="aSq-O8-Dkt" firstAttribute="top" secondItem="mri-mZ-kN7" secondAttribute="top" id="l55-VQ-Q5B"/>
+                            <constraint firstItem="aSq-O8-Dkt" firstAttribute="leading" secondItem="mri-mZ-kN7" secondAttribute="leading" id="qAs-vG-1qR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="mri-mZ-kN7" id="dLT-eZ-RgI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPx-IE-10y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="865"/>
         </scene>
         <!--Post PageVC-->
         <scene sceneID="tQo-4t-i07">

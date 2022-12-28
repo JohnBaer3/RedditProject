@@ -13,7 +13,7 @@ class RemoteImageView: UIImageView {
             self.isHidden = true
             return
         }
-        
+
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else {
                 DispatchQueue.main.async() { [weak self] in

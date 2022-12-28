@@ -31,9 +31,8 @@ extension PostPageVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // right here - make this a safer unwrapping
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostTVC.reuseIdentifier) as! MainPostTVC
-        cell.configure(postData)
+        cell.configure(postData, inMainPage: false)
         return cell
     }
 }
