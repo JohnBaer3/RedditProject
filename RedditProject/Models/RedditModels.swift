@@ -22,6 +22,7 @@ struct Child: Decodable {
 struct PostData : Decodable {
     let preview: Preview?
     let media: Media?
+    let id: String
     let title: String
     let subredditName: String
     let authorFullName: String
@@ -38,7 +39,7 @@ struct PostData : Decodable {
         case media = "secure_media"
         case mediaType = "post_hint"
         case commentCount = "num_comments"
-        case preview, title, selftext, thumbnail, score
+        case preview, id, title, selftext, thumbnail, score
     }
 }
 

@@ -42,10 +42,11 @@ class URLSessionHTTPClient {
                 return
             }
             
-            if let responseObject = try? JSONDecoder().decode(T.self, from: data) {
+            do {
+                let responseObject = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(responseObject))
-            } else {
-                completion(.failure(NetworkError.invalidDataFormat))
+            } catch let jsonError as NSError {
+                print(String(describing: jsonError))
             }
         }
 

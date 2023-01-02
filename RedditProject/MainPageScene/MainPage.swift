@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainPage: UIViewController {
+class MainPageVC: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
@@ -57,7 +57,7 @@ class MainPage: UIViewController {
     }
 }
 
-extension MainPage: UITableViewDataSource {
+extension MainPageVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.models.count
     }
@@ -76,7 +76,7 @@ extension MainPage: UITableViewDataSource {
     }
 }
 
-extension MainPage: UITableViewDelegate {
+extension MainPageVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let postPageVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: PostPageVC.identifier) as? PostPageVC {
             postPageVC.postData = viewModel.models[indexPath.row]
@@ -85,7 +85,7 @@ extension MainPage: UITableViewDelegate {
     }
 }
 
-extension MainPage: SubredditOptionDelegate {
+extension MainPageVC: SubredditOptionDelegate {
     func selectedSubreddit(_ subredditName: String) {
         viewModel.fetchData(subredditName)
     }

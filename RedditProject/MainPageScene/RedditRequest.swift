@@ -8,7 +8,7 @@
 import Foundation
 
 enum RedditRequest: Request {
-    case getFeed(String), getComments(String)
+    case getFeed(String, String?), getComments(String, String)
     
     var scheme: HTTPScheme {
         return .https
@@ -20,28 +20,39 @@ enum RedditRequest: Request {
     
     var path: String {
         switch self {
-        case .getFeed(let subredditName):
+        case .getFeed(let subredditName, _):
             return "/r/\(subredditName)/.json"
-        case .getComments(let postId):
-            return "/\(postId)"
+        case .getComments(let subredditName, let postID):
+            return "/\(subredditName)/comments/\(postID)/.json"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getFeed(_):
+        case .getFeed(_, _):
             return .get
-        case .getComments(_):
+        case .getComments(_, _):
             return .get
         }
     }
     
     var parameters: [URLQueryItem] {
         switch self {
-        case .getFeed(_):
+        case .getFeed(_, let lastPostID):
+            var queryItems: [URLQueryItem] = []
             let imageParam = URLQueryItem(name: "raw_json", value: "1")
-            return [imageParam]
-        case .getComments(_):
+            queryItems.append(imageParam)
+            
+            let queryLimit = URLQueryItem(name: "limit", value: "30")
+            queryItems.append(queryLimit)
+            
+            if let lastPostID = lastPostID {
+                let beforeParam = URLQueryItem(name: "after", value: lastPostID)
+                queryItems.append(beforeParam)
+            }
+            return queryItems
+            
+        case .getComments(_, _):
             return []
         }
     }

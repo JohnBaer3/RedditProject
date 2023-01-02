@@ -8,8 +8,7 @@
 import Foundation
 
 class MainPageVM {
-    
-    var currentSubreddit: String = ""
+    var currentSubreddit: String
     var models: [PostData] = []
     let redditService = URLSessionHTTPClient()
     
@@ -21,7 +20,8 @@ class MainPageVM {
     
     func fetchData(_ subredditName: String, paging: Bool = false) {
         currentSubreddit = subredditName
-        let endPoint = RedditRequest.getFeed(subredditName)
+        let lastPostID: String? = models.count > 0 ? models[models.count - 1].id : nil
+        let endPoint = RedditRequest.getFeed(subredditName, lastPostID)
         redditService.request(endPoint, timeout: .Medium) { [weak self] (result: Result<RedditResponse, Error>) in
             switch result {
             case .success(let response):
