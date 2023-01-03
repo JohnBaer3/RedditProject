@@ -40,16 +40,18 @@ enum RedditRequest: Request {
         switch self {
         case .getFeed(_, let lastPostID):
             var queryItems: [URLQueryItem] = []
+            
             let imageParam = URLQueryItem(name: "raw_json", value: "1")
             queryItems.append(imageParam)
             
-            let queryLimit = URLQueryItem(name: "limit", value: "30")
+            let queryLimit = URLQueryItem(name: "count", value: "25")
             queryItems.append(queryLimit)
             
             if let lastPostID = lastPostID {
                 let beforeParam = URLQueryItem(name: "after", value: lastPostID)
                 queryItems.append(beforeParam)
             }
+            
             return queryItems
             
         case .getComments(_, _):
