@@ -11,6 +11,7 @@ class MainPageVM {
     var currentSubreddit: String
     var models: [PostData] = []
     let redditService = URLSessionHTTPClient()
+    var scrollToTop = false
     
     static var subredditDataUpdated: String = "SubredditDataUpdated"
     
@@ -27,6 +28,7 @@ class MainPageVM {
             case .success(let response):
                 if !paging {
                     self?.models = []
+                    self?.scrollToTop = true
                 }
                 response.data.children.forEach { self?.models.append($0.data) }
                 NotificationCenter.default.post(name: Notification.Name(MainPageVM.subredditDataUpdated), object: nil)

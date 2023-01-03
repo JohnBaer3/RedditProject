@@ -39,6 +39,10 @@ class PostPageVC: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(PostPageVM.commentDataUpdated), object: nil)
+    }
 }
 
 extension PostPageVC: UITableViewDataSource {

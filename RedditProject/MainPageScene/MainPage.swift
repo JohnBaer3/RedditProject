@@ -44,6 +44,10 @@ class MainPageVC: UIViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.loading = false
+            if self.viewModel.scrollToTop {
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableView.ScrollPosition.top, animated: false)
+                self.viewModel.scrollToTop = false
+            }
         }
     }
     

@@ -59,7 +59,7 @@ struct Image: Decodable {
 
 
 struct Media: Decodable {
-    let redditVideo: RedditVideo
+    let redditVideo: RedditVideo?
     
     enum CodingKeys: String, CodingKey {
         case redditVideo = "reddit_video"
